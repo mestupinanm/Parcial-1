@@ -1,20 +1,42 @@
-import React from 'react';
-import '../App.css';
+import React, { useState, useEffect } from 'react';
+import './DetailRobot.css';
 
-function DetailRobot({ robot }) {
+const DetailRobot = ({ robot }) => {
+    const [imagen, setImagen] = useState("");
+
+    const adjustImageUrl = (url) => {
+        return url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/");
+    };
+
+    useEffect(() => {
+        if (robot.imagen) {
+            const newImageUrl = robot.imagen.includes("github.com")
+                ? adjustImageUrl(robot.imagen)
+                : robot.imagen;
+            setImagen(newImageUrl);
+        }
+    }, [robot.imagen]);
+
+    const handleImageError = () => {
+        setImagen(""); 
+    };
+
     return (
-        <div className="container mt-5">
-            <div className="card">
-                <img src={`../imagenes/robot${robot.id}.png`} className="card-img-top" alt={robot.nombre} />
-                <div className="card-body">
-                    <h5 className="card-title">{robot.nombre}</h5>
-                    <p className="card-text"><strong>Modelo:</strong> {robot.modelo}</p>
-                    <p className="card-text"><strong>Empresa Fabricante:</strong> {robot.empresa}</p>
-                    <p className="card-text"><strong>Año de Fabricación:</strong> {robot.anioFabricacion}</p>
-                    <p className="card-text"><strong>Capacidad de Procesamiento:</strong> {robot.capacidadProcesamiento}</p>
-                    <p className="card-text">{robot.descripcion}</p>
-                </div>
-            </div>
+        <div className="robot-detail-card">
+            <h3 className="robot-name">{robot.nombre}</h3>
+            {imagen ? (
+                <img
+                    src={imagen}
+                    className="robot-image"
+                    alt={robot.nombre}
+                    onError={handleImageError}
+                />
+            ) : (
+                <p>No hay imagen disponible</p>
+            )}
+            <p className="robot-detail"><strong>➔ Año de Fabricación:</strong> {robot.añoFabricacion}</p>
+            <p className="robot-detail"><strong>➔ Capacidad de Procesamiento:</strong> {robot.capacidadProcesamiento}</p>
+            <p className="robot-detail"><strong>➔ Humor:</strong> {robot.humor}</p>
         </div>
     );
 }

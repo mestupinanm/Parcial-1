@@ -1,6 +1,5 @@
-// LoginForm.js
 import React, { useState } from 'react';
-import '../App.css';
+import './LoginForm.css';  // Mantén los estilos en el CSS
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -9,34 +8,77 @@ function LoginForm({ onLogin }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (username === "admin" && password === "admin") {
-      onLogin(true);
+    if (username === "admin" && password === "pass") {
+      fetch('http://localhost:3001/login', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ login: username, password: password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          onLogin(true);
+          setError('');
+        } else {
+          setError('Error de autenticación. Revise sus credenciales');
+        }
+      })
+      .catch(() => {
+        setError('Error de autenticación. Revise sus credenciales');
+      });
     } else {
       setError('Error de autenticación. Revise sus credenciales');
-      onLogin(false);
     }
   };
 
   return (
-    <div className="login-form">
-      <img src="../imagenes/portada.png" alt="Robot Lovers" className="login-header" />
-      <h1>Inicio de sesión</h1>
+    <main className="login-form">
+      <h2>Inicio de sesión</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Nombre de usuario</label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input 
+            type="text" 
+            value={username} 
+            onChange={(e) => setUsername(e.target.value)} 
+          />
         </div>
         <div className="form-group">
           <label>Contraseña</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input 
+            type="password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+          />
         </div>
         <div className="buttons">
-          <button type="submit">Ingresar</button>
-          <button type="button" onClick={() => { setUsername(''); setPassword(''); setError(''); }}>Cancelar</button>
+          <button 
+            type="submit" 
+            style={{ 
+              backgroundColor: '#003B93', color: 'white', width: '120%', fontWeight: 'bold'
+            }}
+          >
+            Ingresar
+          </button>
+          <button 
+            type="button" 
+            style={{ 
+              backgroundColor: '#E75D5D', color: 'white', width: '120%', fontWeight: 'bold'
+            }} 
+            onClick={() => { 
+              setUsername(''); 
+              setPassword(''); 
+              setError(''); 
+            }}
+          >
+            Cancelar
+          </button>
         </div>
         {error && <p className="error">{error}</p>}
       </form>
-    </div>
+    </main>
   );
 }
 

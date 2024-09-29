@@ -1,0 +1,52 @@
+/* Estilos generales */
+html, body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+}
+
+.login-form {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    color: #000000;
+    background-color: transparent; 
+    border: none;  
+}
+
+.login-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 12px;
+    background-color: #cacaca;
+    border: 1px solid #cacaca;  
+    color: #000000;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.error {
+    color: #CD3232;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: left;
+}
