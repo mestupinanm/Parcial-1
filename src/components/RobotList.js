@@ -26,7 +26,7 @@ function RobotList() {
                         <th><FormattedMessage id="ID"/></th>
                         <th><FormattedMessage id="Name"/></th>
                         <th><FormattedMessage id="Model"/></th>
-                        <th><FormattedMessage id="Manufacturer Company"/></th>
+                        <th><FormattedMessage id="Manufacturing Company"/></th>
                     </tr>
                 </thead>
                 <tbody>

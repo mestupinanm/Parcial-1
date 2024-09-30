@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './LoginForm.css';  // Mantén los estilos en el CSS
+import './LoginForm.css';  
+import {FormattedMessage} from 'react-intl' ;
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -35,10 +36,10 @@ function LoginForm({ onLogin }) {
 
   return (
     <main className="login-form">
-      <h2>Inicio de sesión</h2>
+      <h2><FormattedMessage id="Login"/></h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Nombre de usuario</label>
+          <label><FormattedMessage id="Username"/></label>
           <input 
             type="text" 
             value={username} 
@@ -47,7 +48,7 @@ function LoginForm({ onLogin }) {
           />
         </div>
         <div className="form-group">
-          <label>Contraseña</label>
+          <label><FormattedMessage id="Password"/></label>
           <input 
             type="password" 
             value={password} 

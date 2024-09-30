@@ -5,7 +5,7 @@ import LoginForm from './components/LoginForm';
 import {FormattedMessage} from 'react-intl' ;
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Inicialmente no autenticado
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
 
   return (
     <>
