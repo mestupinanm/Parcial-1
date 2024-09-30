@@ -43,6 +43,7 @@ function LoginForm({ onLogin }) {
             type="text" 
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
+            style={error ? { border: '2px solid #CD3232' }  : {}}
           />
         </div>
         <div className="form-group">
@@ -51,6 +52,7 @@ function LoginForm({ onLogin }) {
             type="password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
+            style={error ? { border: '2px solid #CD3232' }  : {}}
           />
         </div>
         <div className="buttons">
