@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './RobotList.css';
 import DetailRobot from './DetailRobot';
+import { FormattedMessage } from 'react-intl';
 
 function RobotList() {
     const [robots, setRobots] = useState([]);

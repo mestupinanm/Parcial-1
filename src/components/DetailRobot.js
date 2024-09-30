@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './DetailRobot.css';
+import {FormattedMessage} from 'react-intl' ;
 
 const DetailRobot = ({ robot }) => {
     const [imagen, setImagen] = useState("");
@@ -34,9 +35,9 @@ const DetailRobot = ({ robot }) => {
             ) : (
                 <p>No hay imagen disponible</p>
             )}
-            <p className="robot-detail"><strong>➔ Año de Fabricación:</strong> {robot.añoFabricacion}</p>
-            <p className="robot-detail"><strong>➔ Capacidad de Procesamiento:</strong> {robot.capacidadProcesamiento}</p>
-            <p className="robot-detail"><strong>➔ Humor:</strong> {robot.humor}</p>
+            <p className="robot-detail"><strong><FormattedMessage id="➔ Año de Fabricación:"/></strong> {robot.añoFabricacion}</p>
+            <p className="robot-detail"><strong><FormattedMessage id="➔ Capacidad de Procesamiento:"/></strong> {robot.capacidadProcesamiento}</p>
+            <p className="robot-detail"><strong><FormattedMessage id="➔ Humor:"/></strong> {robot.humor}</p>
         </div>
     );
 }
