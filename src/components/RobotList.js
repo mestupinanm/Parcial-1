@@ -23,10 +23,10 @@ function RobotList() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Modelo</th>
-                        <th>Empresa Fabricante</th>
+                        <th><FormattedMessage id="ID"/></th>
+                        <th><FormattedMessage id="Name"/></th>
+                        <th><FormattedMessage id="Model"/></th>
+                        <th><FormattedMessage id="Manufacturer Company"/></th>
                     </tr>
                 </thead>
                 <tbody>

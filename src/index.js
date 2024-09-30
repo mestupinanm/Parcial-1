@@ -25,11 +25,9 @@ const { locale, messages } = determineMessages(getBrowserLocale());
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <IntlProvider locale={locale} messages={messages}>
-
-<React.StrictMode>
-    <App />
-  </React.StrictMode>
-
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </IntlProvider>, 
 );
 
