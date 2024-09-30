@@ -63,7 +63,7 @@ function LoginForm({ onLogin }) {
               backgroundColor: '#003B93', color: 'white', width: '120%', fontWeight: 'bold'
             }}
           >
-            Ingresar
+            <FormattedMessage id="Join"/>
           </button>
           <button 
             type="button" 
@@ -76,10 +76,10 @@ function LoginForm({ onLogin }) {
               setError(''); 
             }}
           >
-            Cancelar
+            <FormattedMessage id="Cancel"/>
           </button>
         </div>
-        {error && <p className="error">{error}</p>}
+        {error && <p className="error"><FormattedMessage id="Authentication error. Please check your credentials"/></p>}
       </form>
     </main>
   );
